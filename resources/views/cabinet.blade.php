@@ -9,7 +9,7 @@
 					<a href="/proposal/{{ $proposal->id }}">{{ $proposal->title }}</a>
 				</span>
 				<span class="created">{{ $proposal->created_at->toFormattedDateString() }}</span>
-				<span class="time">{{ $proposal->status }}</span>
+				<span class="status">{{ $proposal->status }}</span>
 				<span class="action">
 					<a class="btn btn-success pay-btn" href="/proposal/pay?id={{ $proposal->id }}&user_id=$user->id">Оплатить</a>
 				</span>
@@ -28,7 +28,7 @@
 						<a href="/proposal/{{ $proposal->id }}">{{ $proposal->title }}</a>
 					</span>
 					<span class="created">{{ $proposal->created_at->toFormattedDateString() }}</span>
-					<span class="time">{{ $proposal->status }}</span>
+					<span class="status">{{ $proposal->status }}</span>
 					<span class="action">
 						<a class="btn btn-success accept-btn" href="/proposal/accept?id={{ $proposal->id }}&user_id=$user->id">Принять</a>
 					</span>
@@ -48,7 +48,7 @@
 						<a href="/proposal/{{ $proposal->id }}">{{ $proposal->title }}</a>
 					</span>
 					<span class="created">{{ $proposal->created_at->toFormattedDateString() }}</span>
-					<span class="time">{{ $proposal->status }}</span>
+					<span class="status">{{ $proposal->status }}</span>
 					<span class="action">
 						<a class="btn btn-success accept-btn" href="/proposal/accept?id={{ $proposal->id }}&user_id=$user->id">Да</a>
 						<a class="btn btn-success accept-btn" href="/proposal/accept?id={{ $proposal->id }}&user_id=$user->id">Нет</a>
@@ -66,7 +66,7 @@
 					<a href="/proposal/{{ $proposal->id }}">{{ $proposal->title }}</a>
 				</span>
 				<span class="created">{{ $proposal->created_at->toFormattedDateString() }}</span>
-				<span class="time">{{ $proposal->status }}</span>
+				<span class="status">{{ $proposal->status }}</span>
 				<span class="action">
 					<a class="btn btn-success accept-btn" href="/proposal/accept?id={{ $proposal->id }}">Принять</a>
 				</span>
