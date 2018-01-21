@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Proposal;
 use App\User;
 
@@ -16,7 +17,7 @@ class ProposalController extends Controller
     public function index()
     {
         $proposals = Proposal::latest()->get();
-        return view('proposal.index', compact('proposals'));
+        return view('proposals.index', compact('proposals'));
     }
 
     /**
@@ -26,7 +27,15 @@ class ProposalController extends Controller
      */
     public function create()
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+        
+        $userId = 1;
+        // if (!empty($user)) {
+        //     $userId = $user->id;
+        // }
+        return view('proposals.create', compact('userId'));
     }
 
     /**
@@ -37,7 +46,18 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required',
+            'sum' => 'required'
+        ]);
+
+        $prop = new Proposal;
+        $prop->title = request('title');
+        $prop->body = request('body');
+        $prop->sum = request('sum');
+        $prop->save();
+        return redirect('cabinet');
     }
 
     /**

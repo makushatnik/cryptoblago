@@ -18,7 +18,13 @@
 </div>
 <div class="navbar navbar-inverse bg-inverse">
   <div class="container d-flex justify-content-between">
-    <a href="#" class="navbar-brand">Album</a>
+    <a href="#" class="navbar-brand">CryptoBlago</a>
+    @if (Auth::check())
+        <a href="{{ url('/logout') }}">Logout</a>
+    @else
+        <a href="{{ url('/login') }}">Login</a>
+        <a href="{{ url('/register') }}">Register</a>
+    @endif
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

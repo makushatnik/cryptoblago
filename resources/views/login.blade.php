@@ -11,6 +11,7 @@
             <div class="top-right links">
                 @if (Auth::check())
                     <a href="{{ url('/home') }}">Home</a>
+                    <a href="{{ url('/logout') }}">Logout</a>
                 @else
                     <a href="{{ url('/register') }}">Register</a>
                 @endif

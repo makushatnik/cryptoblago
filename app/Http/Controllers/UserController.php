@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Proposal;
 use App\User;
 
@@ -11,16 +12,23 @@ class UserController extends Controller
 
 
     public function cabinet() {
-        $userId = 1;
-        $user = User::where('id', $userId)->first();
+        //$user = Auth::user();
+        $userId = 5;
+        // if (!empty($user)) {
+        //     $userId = $user->id;
+        // } else {
+        //     return view('login');
+        // }
+        $user = User::find($userId);
         if (empty($user)) {
             return view('login');
         }
+        
         //Спонсор
-        if ($user->role == 1) {
-            $proposals = Proposal::where(['status' => 1, 'verified' => 1])->get();
-        } else {
-            $proposals = Proposal::where(['user' => $userId, 'verified' => 1])->get();
+        if ($user->role != 2) {
+            $proposals = Proposal::where(['verified' => 1])->get();
+        } else {//if ($user->role == 2) {
+            $proposals = Proposal::where(['user_id' => $userId, 'verified' => 1])->get();
         }
 
         return view('cabinet', compact('user', 'proposals'));
@@ -42,6 +50,14 @@ class UserController extends Controller
             return view('login');
         }
         return redirect('cabinet');
+    }
+
+    public function logout() {
+        if (!Auth::check()) {
+            Auth::logout();
+        }
+        
+        return redirect('/');
     }
 
     public function register() {

@@ -24,7 +24,7 @@
                         <input type="text" name="username" required />
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">E-mail</label>
                         <input type="text" name="email" required />
                     </div>
                     <div class="form-group">

@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Cryptoblago</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="css/album.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!--link rel="stylesheet" type="text/css" href="css/album.css"-->
+		<script src="js/bootstrap.min.js"></script>
         <!-- Styles -->
         <style>
             html, body {
@@ -62,7 +62,9 @@
                 margin-bottom: 30px;
             }
 
-            .login-form, .register-form {
+            .login-form,
+            .register-form,
+            .proposal-form {
                 padding-top: 5px;
                 border: 2px solid #636b6f;
                 border-radius: 5px;
@@ -76,6 +78,25 @@
             .form-group label {
                 width: 150px;
                 float: left;
+            }
+
+            .grid {
+                width: 100%;
+                margin: 20px 0;ы
+            }
+
+            .grid .card {
+                display: inline-block;
+                width: 300px;
+            }
+
+            .card-status {
+                position: absolute;
+                right: 10px; bottom: 10px;
+            }
+
+            .accept-btn {
+                margin-top: 20px;
             }
         </style>
     </head>

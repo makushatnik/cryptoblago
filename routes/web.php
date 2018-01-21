@@ -28,16 +28,17 @@ Route::get('/register', function () {
 
 Route::post('/register', 'UserController@register');
 
-Route::get('/logout', function () {
-    return view('logout');
-});
+Route::get('/logout', 'UserController@logout');
 
-// Route::get('/cabinet', function () {
-//     return view('cabinet');
-// });
 Route::get('/cabinet', 'UserController@cabinet');
 
-Route::get('/proposal/{id}', 'UserController@proposal');
+Route::get('/proposal', 'ProposalController@index');
+
+Route::get('/proposal/create', 'ProposalController@create');
+
+Route::post('/proposal/create', 'ProposalController@store');
+
+Route::get('/proposal/{id}', 'ProposalController@show');
 
 Route::get('/admin', function () {
     return view('admin');
